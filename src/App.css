@@ -1,7 +1,31 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-table th{
-  text-transform: capitalize;
+body{
+  width: 100%;
+  height: 100vh;
+  background: url("background.jpg.jpg");
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h2{
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  border: 1px solid black;
+  padding: 10px 35px;
+  margin: 10px;
+  background-color: rgba(173, 216, 230, 0.596);
+  border-radius: 10px;
+  cursor: pointer;
+  backdrop-filter: blur(30px);
+  box-shadow: 2px 2px 25px white;
+}
+.margins{
+  margin: 50px 30px;
+  text-align: center;
 }

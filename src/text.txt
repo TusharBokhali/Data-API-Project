@@ -1,0 +1,49 @@
+let real = 0;
+let loops=0;
+let arrays1 = ["https://img.freepik.com/free-vector/ace-diamonds-playing-card-isolated_1308-79356.jpg?size=626&ext=jpg&ga=GA1.1.672697106.1717113600&semt=ais_user",
+  "https://previews.123rf.com/images/rlmf/rlmf1512/rlmf151200137/49319599-single-playing-cards-vector-king-of-hearts.jpg",
+  "https://img.freepik.com/free-vector/two-hearts-playing-card-isolated_1308-78625.jpg",
+  "https://img.freepik.com/free-vector/ace-diamonds-playing-card-isolated_1308-79356.jpg?size=626&ext=jpg&ga=GA1.1.672697106.1717113600&semt=ais_user",
+  "https://img.freepik.com/free-vector/two-hearts-playing-card-isolated_1308-78625.jpg",
+  "https://previews.123rf.com/images/rlmf/rlmf1512/rlmf151200084/49319465-single-playing-cards-vector-jack-of-hearts.jpg",
+  "https://previews.123rf.com/images/rlmf/rlmf1512/rlmf151200137/49319599-single-playing-cards-vector-king-of-hearts.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Playing_card_heart_5.svg/819px-Playing_card_heart_5.svg.png",
+  "https://previews.123rf.com/images/rlmf/rlmf1512/rlmf151200084/49319465-single-playing-cards-vector-jack-of-hearts.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Playing_card_heart_5.svg/819px-Playing_card_heart_5.svg.png",
+]
+function App() {  
+  let o=0;
+  let incre=0;
+  let arrays = [];
+  // let arrays = ["", "", "", "", "", "", "", "", "", ""];
+
+    // function arraysSetFun(arrays){
+    //   let currentIndex = arrays.length;
+    //   while(currentIndex!=0){
+    //     let RandomIndex = Math.floor(Math.random());
+    //     currentIndex--;
+    //     [arrays[currentIndex], arrays[RandomIndex]] = [
+    //       arrays[RandomIndex], arrays[currentIndex]];
+    //   }
+      
+    // }
+    // arraysSetFun(arrays)
+    let [arrays2,setarrays2]  = useState(Array(10).fill(""))
+if(loops===0){
+  loops++;
+  let nakal = [...arrays1]
+  // console.log("Prints");
+  
+  let randm = ()=>{
+    return parseInt(Math.random()*10)
+  }
+  while(incre < arrays1.length){
+    let indr = randm();
+    if(nakal[indr]===""){
+      nakal[indr] = arrays1[incre++]
+      setarrays2(nakal)
+    }
+  }
+ arrays = arrays2;
+  
+}
