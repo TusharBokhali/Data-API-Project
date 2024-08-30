@@ -26,6 +26,12 @@ h2{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
 }
+button{
+    background-color: green;
+}
 .none{
     display: none;
+}
+.active{
+    background-color: red;
 }

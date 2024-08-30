@@ -1,30 +1,61 @@
 import React, { useState } from 'react'
 import './componets/levely.css'
 import level1 from './question.png'
+import level2 from './Level2.png'
+import level3 from './level3.png'
+import level4 from './Levels4.png'
+import level5 from './levels5.png'
+import level6 from './levels6.png'
+import level7 from './levels7.png'
+import level8 from './levels8.png'
+import level9 from './levels9.png.jpg'
+import level10 from './levels10.png.jpg'
+import level11 from './levels11.png.jpg'
+import level12 from './levvels7.png'
 import { json } from 'react-router';
-function    Levels() {
+
+function  Levels() {
+  let Images = [       {img:level1,Ans:0,lev:"levels 1"},
+                       {img:level2,Ans:96,lev:"levels 2"},
+                       {img:level3,Ans:190,lev:"levels 3"},
+                       {img:level4,Ans:165,lev:"level 4"},
+                       {img:level5,Ans:17,lev:"levels 5"},
+                       {img:level6,Ans:6,lev:"levels 6"},
+                       {img:level7,Ans:5,lev:"levels 7"},
+                       {img:level8,Ans:5,lev:"levels 8"},
+                       {img:level9,Ans:32,lev:"levels 9"},
+                       {img:level10,Ans:6,lev:"levels 10"},
+                       {img:level11,Ans:2,lev:"levels 11"},
+                       {img:level12,Ans:7,lev:"levels 12"},
+                      ];
     let [values,setvalues] = useState("")
     let [win,Setwin] = useState(0);
+    let [next,setnext] = useState(0)
     function inputboxvalue(num){
         num = String( values+num); 
             setvalues(num)
     }
     function GetValues(){
-      console.log(values);
-      if(values == 0){
+      if(values == Images[win].Ans){
         Setwin(win+1);  
+        setnext(next+1)
+      }else{
+        alert("Answers Is Wrongs!!")
       }
-      sessionStorage.setItem("win",JSON.stringify(win))
-      console.log(win);
       setvalues("")
-      
+      if(Images.length-1 === win){
+        alert("congratulations For All Level Wins!!");
+        return;
+      }
     }
-    let arraysImages = []
+    if(next>0){
+      localStorage.setItem("winners",JSON.stringify(next));
+    }
   return (
     <div className='All-content'>
-      <h1>Levels 1</h1>
+      <h1>{Images[win].lev}</h1>
         <div className="problems">
-            <img src={level1} alt="" />
+            <img src={Images[win].img} alt="" />
         </div>
       <div className="container">
       <div className="All-inputs">
