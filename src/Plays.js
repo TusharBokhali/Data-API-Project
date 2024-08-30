@@ -1,17 +1,25 @@
 import React, { useState } from 'react'
 import './componets/levely.css'
 import level1 from './question.png'
+import { json } from 'react-router';
 function    Levels() {
     let [values,setvalues] = useState("")
+    let [win,Setwin] = useState(0);
     function inputboxvalue(num){
         num = String( values+num); 
             setvalues(num)
     }
     function GetValues(){
       console.log(values);
+      if(values == 0){
+        Setwin(win+1);  
+      }
+      sessionStorage.setItem("win",JSON.stringify(win))
+      console.log(win);
       setvalues("")
       
     }
+    let arraysImages = []
   return (
     <div className='All-content'>
       <h1>Levels 1</h1>
