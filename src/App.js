@@ -16,6 +16,12 @@ function App() {
     }
   }
   
+  let Winlevel1 = localStorage.getItem("winners")
+  let reallevel1 = JSON.parse(Winlevel1)
+
+  let data = reallevel1 == null || reallevel1 == 11 ? 0 : reallevel1;
+  
+  
   function LevelsCliks(){
     if(level === false){
       setlevel(true);
@@ -26,17 +32,17 @@ function App() {
   return (
     <div>
     <div className={clicks || level === true ? 'none' : 'margins'}>
-      <h2 onClick={ClicktoPlays}>Plays</h2>
+      <h2 onClick={ClicktoPlays}>Play</h2>
     </div>
     <div className={clicks || level === true ? 'none' : 'margins'}>
-      <h2 onClick={LevelsCliks}>Levels</h2>
+      <h2 onClick={LevelsCliks}>Level</h2>
     </div>
     <div>{
-      clicks == true ? <Plays/> : ""  
+      clicks === true ? <Plays  leves = {data}/> : ""  
       }</div>
       <div>
         {
-          level == true ? <AllLevels/> : ""
+          level === true ? <AllLevels/> : ""
         }
       </div>
     </div>

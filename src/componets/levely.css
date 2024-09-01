@@ -54,6 +54,11 @@ button{
     text-align: center;
 }
 .problems img{
-    width: 80%;
+    width: 100%;
     border-radius: 7px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+.none{
+    display: none;
 }

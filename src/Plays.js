@@ -12,9 +12,16 @@ import level9 from './levels9.png.jpg'
 import level10 from './levels10.png.jpg'
 import level11 from './levels11.png.jpg'
 import level12 from './levvels7.png'
-import { json } from 'react-router';
+import level13 from './congra.png'
+let nextLev = 0;
 
-function  Levels() {
+let repeatNumber = 0;
+function  Levels(props) {
+    nextLev = props.leves;
+
+    let nonerepeat = localStorage.getItem("repeat");
+    repeatNumber = nonerepeat == null ? 0 : nonerepeat;
+    
   let Images = [       {img:level1,Ans:0,lev:"levels 1"},
                        {img:level2,Ans:96,lev:"levels 2"},
                        {img:level3,Ans:190,lev:"levels 3"},
@@ -27,10 +34,19 @@ function  Levels() {
                        {img:level10,Ans:6,lev:"levels 10"},
                        {img:level11,Ans:2,lev:"levels 11"},
                        {img:level12,Ans:7,lev:"levels 12"},
+                       {img:level13,Ans:null,lev:"congratulations"},
                       ];
+
+    if(nextLev === Images.length-1){
+      nextLev = 0;
+      next = 0;
+    }
+    // console.log(nextLev);
+    
     let [values,setvalues] = useState("")
-    let [win,Setwin] = useState(0);
-    let [next,setnext] = useState(0)
+    let [win,Setwin] = useState(nextLev);
+    let [next,setnext] = useState(nextLev)
+    let [cong,setCong] = useState(false)
     function inputboxvalue(num){
         num = String( values+num); 
             setvalues(num)
@@ -42,14 +58,21 @@ function  Levels() {
       }else{
         alert("Answers Is Wrongs!!")
       }
-      setvalues("")
-      if(Images.length-1 === win){
+      setvalues("");
+    
+      
+      if(Images.length-1   === win){
         alert("congratulations For All Level Wins!!");
-        return;
+        setCong(true)
+        repeatNumber++;
+        localStorage.setItem("repeat",JSON.stringify(repeatNumber));
       }
     }
-    if(next>0){
-      localStorage.setItem("winners",JSON.stringify(next));
+
+    if(repeatNumber===0){
+      if(next>nextLev){
+        localStorage.setItem("winners",JSON.stringify(next));
+      }
     }
   return (
     <div className='All-content'>
@@ -57,7 +80,7 @@ function  Levels() {
         <div className="problems">
             <img src={Images[win].img} alt="" />
         </div>
-      <div className="container">
+      <div className={cong === true ? 'none' : 'container'}>
       <div className="All-inputs">
             <input type="text" value={values} />
             <div>
