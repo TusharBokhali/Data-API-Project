@@ -8,18 +8,20 @@ function App() {
   let [clicks,setClicks] = useState(false);
   let [level,setlevel] = useState(false);
 
+  // sessionStorage.setItem("lvl",JSON.stringify(level))
   function ClicktoPlays(){
     if(clicks === false){
       setClicks(true);
     }else{
       setClicks(false);
     }
+    
   }
   
   let Winlevel1 = localStorage.getItem("winners")
   let reallevel1 = JSON.parse(Winlevel1)
 
-  let data = reallevel1 == null || reallevel1 == 11 ? 0 : reallevel1;
+  let data = reallevel1 == null || reallevel1 === 11 ? 0 : reallevel1;
   
   
   function LevelsCliks(){

@@ -14,27 +14,28 @@ import level11 from './levels11.png.jpg'
 import level12 from './levvels7.png'
 import level13 from './congra.png'
 let nextLev = 0;
-
+let str='' ;
 let repeatNumber = 0;
+let arr = [];
 function  Levels(props) {
     nextLev = props.leves;
 
     let nonerepeat = localStorage.getItem("repeat");
     repeatNumber = nonerepeat == null ? 0 : nonerepeat;
     
-  let Images = [       {img:level1,Ans:0,lev:"levels 1"},
-                       {img:level2,Ans:96,lev:"levels 2"},
-                       {img:level3,Ans:190,lev:"levels 3"},
+  let Images = [       {img:level1,Ans:0,lev:"level 1"},
+                       {img:level2,Ans:96,lev:"level 2"},
+                       {img:level3,Ans:190,lev:"level 3"},
                        {img:level4,Ans:165,lev:"level 4"},
-                       {img:level5,Ans:17,lev:"levels 5"},
-                       {img:level6,Ans:6,lev:"levels 6"},
-                       {img:level7,Ans:5,lev:"levels 7"},
-                       {img:level8,Ans:5,lev:"levels 8"},
-                       {img:level9,Ans:32,lev:"levels 9"},
-                       {img:level10,Ans:6,lev:"levels 10"},
-                       {img:level11,Ans:2,lev:"levels 11"},
-                       {img:level12,Ans:7,lev:"levels 12"},
-                       {img:level13,Ans:null,lev:"congratulations"},
+                       {img:level5,Ans:17,lev:"level 5"},
+                       {img:level6,Ans:6,lev:"level 6"},
+                       {img:level7,Ans:5,lev:"level 7"},
+                       {img:level8,Ans:5,lev:"level 8"},
+                       {img:level9,Ans:32,lev:"level 9"},
+                       {img:level10,Ans:6,lev:"level 10"},
+                       {img:level11,Ans:2,lev:"level 11"},
+                       {img:level12,Ans:7,lev:"level 12"},
+                       {img:level13,Ans:null,lev:"Congratulations"},
                       ];
 
     if(nextLev === Images.length-1){
@@ -46,7 +47,7 @@ function  Levels(props) {
     let [values,setvalues] = useState("")
     let [win,Setwin] = useState(nextLev);
     let [next,setnext] = useState(nextLev)
-    let [cong,setCong] = useState(false)
+    let [cong,setCong] = useState(false)  
     function inputboxvalue(num){
         num = String( values+num); 
             setvalues(num)
@@ -61,7 +62,7 @@ function  Levels(props) {
       setvalues("");
     
       
-      if(Images.length-1   === win){
+      if(Images.length-2  === win){
         alert("congratulations For All Level Wins!!");
         setCong(true)
         repeatNumber++;
@@ -74,14 +75,32 @@ function  Levels(props) {
         localStorage.setItem("winners",JSON.stringify(next));
       }
     }
+
+    function skips(){
+      
+        arr.push(win+1)
+
+      localStorage.setItem("skips",JSON.stringify(arr));
+      setnext(++next);
+      Setwin(win+1)
+    }
+
+    
   return (
+    <>
+    <div className='All-Content-game'>
+    <div></div>
+    <div className={cong == true ? 'none' : 'ends'}>
+      <div className='back'>Back</div>
+      <div className="Skip" onClick={skips}>Skip</div>
+    </div>
     <div className='All-content'>
       <h1>{Images[win].lev}</h1>
         <div className="problems">
-            <img src={Images[win].img} alt="" />
+            <img src={Images[win].img} alt="" width={win+1 === 6 || win+1 === 7 || win+1  === 8 || win+1 === 12 ? '150%' : '60%'}/>
         </div>
       <div className={cong === true ? 'none' : 'container'}>
-      <div className="All-inputs">
+      <div className="All-inputs">  
             <input type="text" value={values} />
             <div>
                 <button onClick={()=>inputboxvalue(1)}>1</button>
@@ -102,6 +121,8 @@ function  Levels(props) {
       </div>
       </div>
     </div>
+    </div>
+    </>
   )
 }
 

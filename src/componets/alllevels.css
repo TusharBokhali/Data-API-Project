@@ -36,3 +36,6 @@ button{
 .active{
     background-color: red;
 }
+.skip{
+    background-color: aqua;
+}
