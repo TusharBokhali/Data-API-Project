@@ -11,10 +11,10 @@ function AllLevels() {
   let Winlevel = localStorage.getItem("winners")
   let reallevel = JSON.parse(Winlevel)
   
-      dub = localStorage.getItem("skips") ;
-      realskip = JSON.parse(dub)
+  realskip = localStorage.getItem("skips") ;
+      // realskip = JSON.parse(dub)
       // realskip = dub 
-  console.log(realskip);
+  
   
   
   function levelUp(level){
@@ -27,7 +27,6 @@ function AllLevels() {
     }else{
       alert("You can't level up yet!")
     }
-    
   }
   return (
     <>
@@ -47,7 +46,7 @@ function AllLevels() {
             <button className={ realskip !==null ? realskip.includes(10)? 'skip' :reallevel+1>=10   ?   'active' : '': ""  } onClick={()=>{levelUp(9)}}>10</button>
             <button className={ realskip !==null ? realskip.includes(11)? 'skip' :reallevel+1>=11   ?   'active' : '': ""   } onClick={()=>{levelUp(10)}}>11</button>
             <button className={ realskip !==null ? realskip.includes(12)? 'skip' :reallevel+1>=12   ?   'active' : '': ""   } onClick={()=>{levelUp(11)}}>12</button>
-      </div>""   </div>
+      </div>   </div>
     <div>
         <div>
          {

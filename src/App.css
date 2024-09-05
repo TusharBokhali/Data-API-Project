@@ -32,3 +32,6 @@ h2{
 .none{
   display: none;
 }
+.block{
+  display: block!important;
+}
