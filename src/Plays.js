@@ -13,13 +13,15 @@ import level10 from "./levels10.png.jpg";
 import level11 from "./levels11.png.jpg";
 import level12 from "./levvels7.png";
 import level13 from "./congra.png";
+import Winners from "./componets/Winners";
 let nextLev = 0;
 let str = "";
 let repeatNumber = 0;
 let arr = [];
+let pagechange = false;
 function Levels(props) {
+  
   nextLev = props.leves;
-
   let nonerepeat = localStorage.getItem("repeat");
   repeatNumber = nonerepeat == null ? 0 : nonerepeat;
 
@@ -49,18 +51,21 @@ function Levels(props) {
   let [win, Setwin] = useState(nextLev);
   let [next, setnext] = useState(nextLev);
   let [cong, setCong] = useState(false);
-  let [backs, setbacks] = useState(false);
+  let [Show, setShow] = useState(false);
   function inputboxvalue(num) {
     num = String(values + num);
     setvalues(num);
   }
+
+
+
   function GetValues() {
     if (values == Images[win].Ans) {
-      Setwin(win + 1);
-      setnext(next + 1);
-    } else {
-      alert("Answers Is Wrongs!!");
-    }
+         setShow(true)
+         
+        } else {
+          alert("Answers Is Wrongs!!");
+        }
     setvalues("");
 
     if (Images.length - 2 === win) {
@@ -70,6 +75,12 @@ function Levels(props) {
       localStorage.setItem("repeat", JSON.stringify(repeatNumber));
     }
   }
+ 
+  function Nexts(){
+    Setwin(win + 1);
+    setnext(next + 1);
+    setShow(false)
+  }
 
   if (repeatNumber === 0) {
     if (next > nextLev) {
@@ -78,8 +89,7 @@ function Levels(props) {
   }
 
   function changes(){
-    setbacks(true)
-    sessionStorage.setItem("backpages",backs);
+    window.location.href = "Home.html";
   }
 
   function skips() {
@@ -94,7 +104,7 @@ function Levels(props) {
 
   return (
     <>
-      <div className={backs===true ? 'none': "All-Content-game"}>
+      <div className= {Show === true ? 'none' : "All-Content-game"}>
         <div className={cong == true ? "none" : "ends"}>
           {/* <div><a className="back" href="App.js">Back</a></div> */}
           <div className="back" onClick={changes}>Back</div>
@@ -146,6 +156,20 @@ function Levels(props) {
             </div>
           </div>
         </div>
+      </div>
+      <div className={Show === true ? 'block' :'none'}>
+        
+         <div  className='All-page'>
+         <div className="all-container">
+             <div>
+                 <img src="https://www.shutterstock.com/image-vector/stage-podium-lighting-scene-award-260nw-2274439035.jpg" alt="" />
+             </div>
+             <div className="flexibles">
+                 <button  onClick={()=>{ window.location.href = "Home.html";}}>Back</button>
+                 <button  onClick={Nexts}>Next</button>
+             </div>
+         </div>
+     </div> 
       </div>
     </>
   );
