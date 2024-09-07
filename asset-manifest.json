@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/Data-API-Project/static/css/main.e2edf44d.css",
+    "main.js": "/Data-API-Project/static/js/main.f049c677.js",
+    "static/js/453.ed3810f9.chunk.js": "/Data-API-Project/static/js/453.ed3810f9.chunk.js",
+    "static/media/background.jpg.jpg": "/Data-API-Project/static/media/background.jpg.78b0c8ba4281025fcdf8.jpg",
+    "static/media/question.png": "/Data-API-Project/static/media/question.57ebd0bd8c59d107f30a.png",
+    "static/media/Level2.png": "/Data-API-Project/static/media/Level2.688086eb27c38c60767b.png",
+    "static/media/level3.png": "/Data-API-Project/static/media/level3.0277c3c4955edb301419.png",
+    "static/media/Levels4.png": "/Data-API-Project/static/media/Levels4.f9d6cf43dd53fd625cff.png",
+    "static/media/levels11.png.jpg": "/Data-API-Project/static/media/levels11.png.10a940bc983e8a70923b.jpg",
+    "static/media/levels10.png.jpg": "/Data-API-Project/static/media/levels10.png.18167ab7121a27fb7d3a.jpg",
+    "static/media/levels9.png.jpg": "/Data-API-Project/static/media/levels9.png.00f18c7370f7a514725e.jpg",
+    "static/media/congra.png": "/Data-API-Project/static/media/congra.7b8020dc6695b95fbc03.png",
+    "static/media/levels5.png": "/Data-API-Project/static/media/levels5.91c3165d6e816450cec3.png",
+    "static/media/levvels7.png": "/Data-API-Project/static/media/levvels7.81c525655d113b701ed2.png",
+    "static/media/levels6.png": "/Data-API-Project/static/media/levels6.9b23329bb3b88b55052f.png",
+    "index.html": "/Data-API-Project/index.html",
+    "main.e2edf44d.css.map": "/Data-API-Project/static/css/main.e2edf44d.css.map",
+    "main.f049c677.js.map": "/Data-API-Project/static/js/main.f049c677.js.map",
+    "453.ed3810f9.chunk.js.map": "/Data-API-Project/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e2edf44d.css",
+    "static/js/main.f049c677.js"
+  ]
+}
