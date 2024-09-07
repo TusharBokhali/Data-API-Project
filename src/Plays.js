@@ -14,6 +14,7 @@ import level11 from "./levels11.png.jpg";
 import level12 from "./levvels7.png";
 import level13 from "./congra.png";
 import Winners from "./componets/Winners";
+import App from './App'
 let nextLev = 0;
 let str = "";
 let repeatNumber = 0;
@@ -89,6 +90,7 @@ function Levels(props) {
   }
 
   function changes(){
+    sessionStorage.setItem("backpages",'Home');
     window.location.href = "Home.html";
   }
 
@@ -106,7 +108,6 @@ function Levels(props) {
     <>
       <div className= {Show === true ? 'none' : "All-Content-game"}>
         <div className={cong == true ? "none" : "ends"}>
-          {/* <div><a className="back" href="App.js">Back</a></div> */}
           <div className="back" onClick={changes}>Back</div>
           <div className="Skip" onClick={skips}>
             Skip

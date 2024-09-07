@@ -4,22 +4,21 @@ import Plays from './Plays'
 import AllLevels from './componets/AllLevels.js'
 let block;
 let add;
-function App(props) {
+function App() {
 
   let [clicks, setClicks] = useState(false);
   let [level, setlevel] = useState(false);
   let realfirst = sessionStorage.getItem("backpages");
-  let page =  realfirst === null ? 'Home': realfirst;
-  const [openScreen, setOpenScreen] = useState("Home");
-  // let realfirst = JSON.parse(pageon);
+  let page;
+    page =  realfirst === undefined ? 'Home': realfirst;
 
+  const [openScreen, setOpenScreen] = useState("Home");
 
   if (realfirst === null || realfirst) {
     block = false;
   } else {
     block = false
   }
-  
 
   function ClicktoPlays() {
     if (clicks === false) {
@@ -47,6 +46,7 @@ function App(props) {
   }
   return (
     <div>
+    {/* <div onClick={()=>{}}>ok</div> */}
       {
         openScreen === "Home" ? <div>
           <div className={clicks || level  === true ? 'none' : 'margins block'}>
@@ -57,15 +57,12 @@ function App(props) {
           </div>
         </div> : ""
       }
-
       {
         openScreen === "Level" ? <AllLevels /> : ""
       }
-
       {
         openScreen === "Play" ? <Plays leves={data} /> : ""
       }
-
     </div>
   )
 }
