@@ -63,7 +63,8 @@ function Levels(props) {
   function GetValues() {
     if (values == Images[win].Ans) {
          setShow(true)
-         
+         Setwin(win + 1);
+         setnext(next + 1);     
         } else {
           alert("Answers Is Wrongs!!");
         }
@@ -78,8 +79,7 @@ function Levels(props) {
   }
  
   function Nexts(){
-    Setwin(win + 1);
-    setnext(next + 1);
+    
     setShow(false)
   }
 
